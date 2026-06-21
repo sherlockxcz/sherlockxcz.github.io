@@ -132,4 +132,3 @@ if __name__ == "__main__":
 - 一个完整的平台驱动（platform driver）示例
 - 用 AI 工具批量生成驱动框架代码的实践
 
-Stay tuned —— 且把第一篇发出去再说。🚀

@@ -16,7 +16,7 @@ title = "West 的技术笔记"
   [params.author]
     name = "West"
     headline = "嵌入式 Linux · 驱动开发 · AI 工具"
-    bio = "宁波 ODM 嵌入式工程师，专注于嵌入式 Linux、底层驱动开发与 AI 工具的工程实践。"
+    bio = "宁波 嵌入式工程师，专注于嵌入式 Linux、底层驱动开发与 AI 工具的工程实践。"
     # image = "img/author.jpg"
     # links = [
     #   { github = "https://github.com/sherlockxcz" },

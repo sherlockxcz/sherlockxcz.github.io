@@ -1,0 +1,24 @@
+# -- 中文语言配置 --
+# defaultContentLanguage = "zh-cn" 时，Hugo 会读取本文件。
+
+locale = "zh-cn"
+label = "中文"
+direction = "ltr"
+weight = 1
+title = "West 的技术笔记"
+
+[params]
+  dateFormat = "2006 年 1 月 2 日"
+  description = "嵌入式 Linux · AI 工具 · 驱动开发"
+  mainSections = ["posts"]
+
+  # -- 作者信息 --
+  [params.author]
+    name = "West"
+    headline = "嵌入式 Linux · 驱动开发 · AI 工具"
+    bio = "宁波 ODM 嵌入式工程师，专注于嵌入式 Linux、底层驱动开发与 AI 工具的工程实践。"
+    # image = "img/author.jpg"
+    # links = [
+    #   { github = "https://github.com/sherlockxcz" },
+    #   { email = "mailto:xcz1041079742@qq.com" },
+    # ]

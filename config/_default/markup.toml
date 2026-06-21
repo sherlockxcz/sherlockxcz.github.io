@@ -1,0 +1,23 @@
+# -- Markup --
+# 这些配置是 Congo 主题正常运行所必需的。
+# 参考 https://gohugo.io/getting-started/configuration-markup
+
+[goldmark]
+[goldmark.renderer]
+  unsafe = true # 允许在 Markdown 中嵌入 HTML
+[goldmark.extensions]
+[goldmark.extensions.passthrough]
+  enable = true
+[goldmark.extensions.passthrough.delimiters]
+  block = [['\[', '\]'], ['$$', '$$']]
+  inline = [['\(', '\)']]
+
+# -- 代码高亮 --
+# noClasses=false：Congo 自带 Chroma 样式表，并随明暗主题切换。
+[highlight]
+  noClasses = false
+
+# -- 自动生成的目录（TOC）层级 --
+[tableOfContents]
+  startLevel = 2
+  endLevel = 4

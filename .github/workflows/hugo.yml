@@ -1,0 +1,68 @@
+# 将 Hugo 站点构建并部署到 GitHub Pages
+# 使用说明：
+#   1. 仓库 Settings → Pages → Build and deployment → Source 选择 "GitHub Actions"
+#   2. 推送到 main 分支即自动触发部署
+# 参考: https://gohugo.io/hosting-and-deployment/hosting-on-github/
+
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: {}
+
+# 允许 GITHUB_TOKEN 部署 Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一次部署，避免冲突
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 完整历史，便于 .Lastmod / 相关文章等功能
+          submodules: recursive # 拉取 Congo 主题（git submodule）
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.163.3"
+          extended: true # Congo 需要 extended 版编译 SCSS
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          TZ: Asia/Shanghai
+        run: hugo --minify
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

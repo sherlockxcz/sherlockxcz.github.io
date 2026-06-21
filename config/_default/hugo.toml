@@ -1,0 +1,9 @@
+# -- Hugo 基础配置 --
+# 详见 https://gohugo.io/getting-started/configuration/
+
+baseURL = "https://sherlockxcz.github.io/"
+theme = "congo"
+defaultContentLanguage = "zh-cn"
+
+enableRobotsTXT = true
+summaryLength = 70

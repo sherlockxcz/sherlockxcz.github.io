@@ -1,0 +1,65 @@
+# -- 主题选项 --
+# 这些选项控制主题的行为与网站外观。
+# 参考 https://jpanther.github.io/congo/docs/configuration/
+
+colorScheme = "congo"
+defaultAppearance = "dark" # 可选: light 或 dark
+autoSwitchAppearance = true
+
+defaultThemeColor = "#FFFFFF"
+
+enableSearch = true
+enableCodeCopy = true
+enableImageLazyLoading = true
+enableImageWebp = true
+
+fingerprintAlgorithm = "sha256"
+
+# -- 页头 --
+[header]
+  layout = "basic"
+  showTitle = true
+
+# -- 页脚 --
+[footer]
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+# -- 首页：profile 布局 --
+[homepage]
+  layout = "profile" # 可选: page, profile, custom
+  showRecent = true
+  recentLimit = 5
+
+# -- 文章：显示日期、阅读时间、目录 --
+[article]
+  showDate = true
+  showDateUpdated = true
+  showAuthor = true
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showWordCount = true
+  showComments = false
+
+# -- 列表 --
+[list]
+  showBreadcrumbs = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showSummary = true
+  groupByYear = true
+
+# -- 分类法 --
+[taxonomy]
+  showTermCount = true
+
+# -- 站点搜索 --
+[siteVerification]

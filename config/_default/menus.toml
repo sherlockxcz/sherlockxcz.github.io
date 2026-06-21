@@ -1,0 +1,28 @@
+# -- 主导航菜单 --
+# 参考 https://jpanther.github.io/congo/docs/content-examples/#menus
+
+[[main]]
+  name = "首页"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  name = "文章"
+  pageRef = "posts"
+  weight = 20
+
+[[main]]
+  name = "标签"
+  pageRef = "tags"
+  weight = 30
+
+[[main]]
+  name = "关于"
+  pageRef = "about"
+  weight = 40
+
+# -- 底部社交链接（可选） --
+# [[footer]]
+#   name = "GitHub"
+#   url = "https://github.com/sherlockxcz"
+#   weight = 10

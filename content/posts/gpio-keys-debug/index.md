@@ -96,6 +96,50 @@ key 183   F13
 key 184   F14
 ```
 
+| 内核键码 | kl 映射 | Android KeyCode | 用途 |
+|----------|---------|-----------------|------|
+| 183 | `F13` | `KEYCODE_F13` | Modekey |
+| 184 | `F14` | `KEYCODE_F14` | Customkey |
+
+## 按键事件流分析
+
+从物理按键按下到应用收到的完整链路：
+
+```
+1. 物理按键按下 → GPIO2 电平拉低（下降沿）
+         │
+         ▼
+2. GPIO 中断触发 → 内核 IRQ Handler
+         │
+         ▼
+3. gpio_keys.c 驱动 → 去抖动处理（30ms）
+         │
+         ▼
+4. input_event() → EV_KEY, code=183, value=1
+         │
+         ▼
+5. Input 子系统 → /dev/input/eventX
+         │
+         ▼
+6. Android EventHub → InputReader 读取
+         │
+         ▼
+7. mtk-kpd.kl 映射 → KEYCODE_F13
+         │
+         ▼
+8. 应用层收到 KeyEvent.KEYCODE_F13
+```
+
+事件 value 含义：
+
+| value | 含义 |
+|-------|------|
+| `1` | KEY DOWN（按下） |
+| `0` | KEY UP（释放） |
+| `2` | KEY REPEAT（长按重复） |
+
+排查问题时按这个链路反向追溯：应用没收到的，先 `getevent` 看内核有没有事件；内核没事件的，看中断有没有触发；中断没触发的，万用表量 GPIO 电平。
+
 ## 调试验证
 
 ```bash

@@ -1,6 +1,6 @@
 ---
 title: "MTK 平台 GPIO-Keys 按键驱动调试实战"
-date: 2026-04-20
+date: 2026-06-22T22:00:00+08:00
 draft: false
 tags: ["Linux", "驱动", "MTK", "GPIO", "嵌入式", "Android"]
 categories: ["嵌入式开发"]

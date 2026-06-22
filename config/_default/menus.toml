@@ -21,6 +21,12 @@
   pageRef = "about"
   weight = 40
 
+# 外观切换(明暗):顶栏紧凑图标按钮,替代页脚的大号切换按钮
+[[main]]
+  name = ""
+  weight = 50
+  params = { action = "appearance", showName = false }
+
 # -- 底部社交链接（可选） --
 # [[footer]]
 #   name = "GitHub"

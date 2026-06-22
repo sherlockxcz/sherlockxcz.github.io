@@ -1,0 +1,101 @@
+/* ==========================================================================
+   博客自定义样式 —— 由 Congo 主题 head.html 自动打包进 CSS bundle
+   配色变量(--color-primary-* / --color-neutral-*)来自当前 colorScheme (sapphire)
+   暗色模式:主题在 <html> 上加 .dark 类,本文件用 .dark 前缀适配
+   ========================================================================== */
+
+/* ---- 首屏 hero ---- */
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56vh;
+  padding: 5rem 1rem 4rem;
+  text-align: center;
+  background: radial-gradient(
+    1100px 360px at 50% -8%,
+    rgba(var(--color-primary-500), 0.18),
+    transparent 70%
+  );
+}
+
+.home-hero__inner {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.home-hero__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgb(var(--color-primary-500));
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-primary-400)),
+    rgb(var(--color-primary-600))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-hero__subtitle {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  color: rgb(var(--color-neutral-500));
+}
+
+.dark .home-hero__subtitle {
+  color: rgb(var(--color-neutral-400));
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ---- CTA 按钮 ---- */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.6rem;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.home-btn--primary {
+  color: #fff;
+  background-color: rgb(var(--color-primary-500));
+}
+.home-btn--primary:hover {
+  background-color: rgb(var(--color-primary-600));
+  transform: translateY(-1px);
+}
+
+.home-btn--ghost {
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid rgb(var(--color-neutral-300));
+}
+.home-btn--ghost:hover {
+  color: rgb(var(--color-primary-500));
+  border-color: rgb(var(--color-primary-500));
+}
+
+.dark .home-btn--ghost {
+  border-color: rgb(var(--color-neutral-600));
+}
+
+/* ---- 最近文章区 ---- */
+.home-recent {
+  margin-top: 1rem;
+}

@@ -1,0 +1,21 @@
+{{/*
+  自建首页(custom 布局):首屏 hero + 最近文章。
+  由 params.toml 的 homepage.layout = "custom" 触发加载。
+  样式全部在 assets/css/custom.css,不依赖主题 Tailwind 编译。
+*/}}
+<section class="home-hero">
+  <div class="home-hero__inner">
+    <h1 class="home-hero__title">{{ .Site.Title | emojify }}</h1>
+    {{ with .Site.Language.Params.Author.headline }}
+    <p class="home-hero__subtitle">{{ . | markdownify | emojify }}</p>
+    {{ end }}
+    <div class="home-hero__actions">
+      <a class="home-btn home-btn--primary" href="{{ "posts" | relLangURL }}">浏览文章</a>
+      <a class="home-btn home-btn--ghost" href="https://github.com/sherlockxcz" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-recent">
+  {{ partial "recent-articles.html" . }}
+</section>
